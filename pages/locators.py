@@ -1,23 +1,31 @@
 from selenium.webdriver.common.by import By
 
-class BasePageLocators:
+class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-    BASKET_BUTTON = (By.CSS_SELECTOR, "span[class='btn-group'] a")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    VIEW_BASKET = (By.CSS_SELECTOR, ".basket-mini a.btn")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
-class MainPageLocators:
-    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-
-class LoginPageLocators:
+class LoginPageLocators():
+    REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
-    REGISTER_FORM = (By.ID, "register_form")
+    REGISTER_EMAIL = (By.CSS_SELECTOR, "#id_registration-email")
+    REGISTER_PASS1 = (By.CSS_SELECTOR, "#id_registration-password1")
+    REGISTER_PASS2 = (By.CSS_SELECTOR, "#id_registration-password2")
+    REGISTER_BUTTON = (By.CSS_SELECTOR, "[name='registration_submit']")
 
-class ProductPageLocators:
-    ADD_TO_BASKET_BUTTON = (By.XPATH, "//button[contains(@class, 'btn-add-to-basket')]")
-    PRODUCT_NAME = (By.CSS_SELECTOR, "div h1")
-    ADD_TO_BASKET_MESSAGE = (By.CSS_SELECTOR, "div.alertinner > strong")
-    PRODUCT_PRICE = (By.CSS_SELECTOR, ".product_main p[class='price_color']")
-    BASKET_PRICE = (By.CSS_SELECTOR, "div.alert div p strong")
 
-class BasketPageLocators:
-    MESSAGE_EMPTY_BASKET = (By.CSS_SELECTOR, "#content_inner")
-    ITEMS_TO_BUY_NOW = (By.CSS_SELECTOR, ".basket-items")
+class ProductPageLocators():
+    ADD_TO_BASKET = (By.CSS_SELECTOR, ".btn-add-to-basket")
+    BOOK_NAME = (By.TAG_NAME, ".product_main > h1")
+    BOOK_NAME_IN_BASKET = (By.CSS_SELECTOR, "#messages .alert-success:nth-child(1) > .alertinner > strong")
+
+    BASKETS_PRICE = (By.CSS_SELECTOR, ".alert-info .alertinner p strong")
+    BOOK_PRICE_IN_MSG = (By.CSS_SELECTOR,".basket-mini")
+    BOOK_PRICE = (By.CSS_SELECTOR, ".product_main .price_color")
+
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages .alert-success:nth-child(1) > .alertinner")
+
+class BasketPageLocators():
+    BASKET_MESSAGE = (By.CSS_SELECTOR, "#content_inner p")
+    BASKET_ITEMS = (By.CSS_SELECTOR, ".basket-items")
